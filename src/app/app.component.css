@@ -1,0 +1,54 @@
+/* for sidenav to take a whole page */
+html 
+{
+    height: 1000px;
+}
+body { 
+    
+    height: 1000px;
+}
+
+mat-sidenav-container {
+    height: 100%;
+}
+mat-sidenav-content{
+    height: 110%;
+}
+ mat-sidenav {
+    height: 110%;
+} 
+ 
+mat-sidenav {
+    width: 250px;
+}
+ 
+main {
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+ 
+a:hover, a:active{
+    color: lightgray;
+}
+ 
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+ 
+mat-toolbar{
+    border-radius: 3px;
+    position:sticky;
+  
+}
+ 
+@media(max-width: 959px){
+    mat-toolbar{
+        border-radius: 0px;
+    }
+}

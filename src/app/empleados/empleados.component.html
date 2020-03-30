@@ -1,0 +1,47 @@
+
+<!--Tabla empleados-->
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+  *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div class="mat-elevation-z8">
+              <div id="agregar">
+                <button mat-fab color="primary" (click)="dialogAddEmp()">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+          <table mat-table [dataSource]="data" multiTemplateDataRows class="example-table">
+      
+            <!-- ID Column -->
+            <ng-container matColumnDef="idEmpleado" >
+              <th mat-header-cell *matHeaderCellDef class="tableHeader"
+              >legajo</th>
+              <td mat-cell *matCellDef="let row">{{row.idEmpleado}}</td>
+            </ng-container>
+      
+            <!-- nombre Column -->
+            <ng-container matColumnDef="nombreEmp" >
+              <th mat-header-cell *matHeaderCellDef class="tableHeader">nombre </th>
+              
+              <td mat-cell *matCellDef="let row">{{row.nombreEmp}}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="accion">
+              <th mat-header-cell *matHeaderCellDef class="tableHeader"> Accion </th>
+              <td mat-cell *matCellDef="let row" > 
+                <button mat-fab color="primary" (click)="dialogDeleteEmp(row)" >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-fab color="primary"  (click)="dialogEditEmp(row)">
+                  <mat-icon>edit</mat-icon>
+                </button>   
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+          </table>
+        </div>
+      </div>
